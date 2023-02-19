@@ -23,9 +23,9 @@ Now let’s say you run run an audit of your stack with sls-mentor and you reali
 
 This can be done simply by using the widespread HTTPS protocol 🤝 for posting requests to the database. Essentially, it uses transport layer encryption, a public-key cryptographic protocol—the encryption key is public but the decryption key is private. Hence, the request data is end-to-end encrypted. In turn, plain old HTTP requests are not encrypted thus are vulnerable to [man-in-the-middle](https://csrc.nist.gov/glossary/term/man_in_the_middle_attack) and eavesdropping attacks.
 
-![meme https](./assets/meme-https.png 'meme https')
+![meme https](./assets/meme-https.jpg 'meme https')
 
-To enforce a configuration where only HTTPS requests will be allowed on your S3 bucket, you need to change its access policy. An access policy is made of a version, a name and a list of statements. Each element of the latter is an object that describes the different rules that apply to your bucket. Each rule is a set of property assignments: 
+To enforce a configuration where only HTTPS requests will be allowed on your S3 bucket, you need to change its access policy. The access policy of the bucket is the way AWS allows to set its configuration. It is an object made of a version, a name and a list of statements. Each element of the latter is an object that describes the different rules that apply to your bucket. Each rule is a set of property assignments: 
 - effect sets if the statement will allow or deny access e.g. "allow";
 - principal is the user or account that the statement applies to e.g. "awesome-user";
 - action is the database actions (e.g. "s3:GetObject") in scope of the statement;
@@ -33,20 +33,24 @@ To enforce a configuration where only HTTPS requests will be allowed on your S3 
 - the condition is a [property](https://docs.aws.amazon.com/AmazonS3/latest/userguide/amazon-s3-policy-keys.html) that states when the policy applies : in our case we want to deny access when the aws:SecureTransport is false;
 - you can tag your statement to group resources which share the same tag e.g. "food-bucket".
 
-The thing above delimited by `---` is called a "front matter" and it allows us to keep control over our article in a very easy way. Just edit it with your own data and CI will handle the rest to publish it to dev.to!
+Now that the access policy is no secret to you, I bet you are rushing to you S3 permission tab and if need be, you append a policy statement where ‘Effect’ is set to ‘Deny’ ❌, where “Resource” is set to the AmazonResourceName of your bucket and Condition.Bool.aws:SecureTransport is set to false, just like below. 
+```json
 
-You can also take advantage of [embedme](https://github.com/zakhenry/embedme) to extract your code from the markdown file and make sure that what you're displaying in the markdown is always up to date too e.g.
+{
+  "Effect": "Deny",
 
-![Logo kumo](./assets/logo_kumo_carre.png 'Logo Kumo')
-
-```ts
-// code/demo-code.ts
-
-interface A {
-  hello: string;
+  "Principal": "*",
+  "Action": "s3:*",
+  "Resource": [
+    "resourcename1/*", "resourcename2"],
+  "Condition": {
+    "Bool": {
+    "aws:SecureTransport": "false"
+    } 
+  }
 }
 ```
+It’s as simple as this!
 
-# Found a typo?
+Want to apply more security practices when interacting with your s3 buckets? Deep dive into the configuration of the permission statements and apply [defense in depth](https://aws.amazon.com/blogs/security/how-to-use-bucket-policies-and-apply-defense-in-depth-to-help-secure-your-amazon-s3-data/) 🤿.
 
-If you've found a typo, a sentence that could be improved or anything else that should be updated on this blog post, you can access it through a git repository and make a pull request. Instead of posting a comment, please go directly to <REPO URL> and open a new pull request with your changes.
