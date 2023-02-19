@@ -1,6 +1,6 @@
-# \<YOUR NAME\>'s blog source
+# Vincent Zanetta's blog source
 
-https://dev.to/\<YOUR DEV.TO NICKNAME\>
+https://dev.to/vincentzan
 
 ## Blog posts
 
