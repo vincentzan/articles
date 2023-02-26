@@ -44,7 +44,7 @@ Now that the access policy is no secret to you, I bet you are rushing to you S3 
   "Principal": "*",
   "Action": "s3:*",
   "Resource": [
-    "resourcename1/*", "resourcename2"],
+    "resourceName1/*", "resourceName2"],
   "Condition": {
     "Bool": {
     "aws:SecureTransport": "false"
