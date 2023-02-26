@@ -30,7 +30,7 @@ To enforce a configuration where only HTTPS requests will be allowed on your S3 
 - principal is the user or account that the statement applies to e.g. "awesome-user";
 - action is the database actions (e.g. "s3:GetObject") in scope of the statement;
 - the resource is the list of AmazonResourceNames (ARNs) of the objects. It is a long string that begins with "arn:aws:s3:::*" e.g. "arn:aws:s3:::my-stack-my-chicken-wings-bucket423e3a42f3-432f3j2";
-- the condition is a [property](https://docs.aws.amazon.com/AmazonS3/latest/userguide/amazon-s3-policy-keys.html) that states when the policy applies : in our case we want to deny access when the aws:SecureTransport is false;
+- the condition is a [property](https://docs.aws.amazon.com/AmazonS3/latest/userguide/amazon-s3-policy-keys.html) that states when the policy applies: in our case we want to deny access when the aws:SecureTransport is false;
 - you can tag your statement to group resources which share the same tag e.g. "food-bucket".
 
 Now that the access policy is no secret to you, I bet you are rushing to you S3 permission tab and if need be, you append a policy statement where ‘Effect’ is set to ‘Deny’ ❌, where “Resource” is set to the AmazonResourceName of your bucket and Condition.Bool.aws:SecureTransport is set to false, just like below. 
@@ -50,7 +50,7 @@ Now that the access policy is no secret to you, I bet you are rushing to you S3 
   }
 }
 ```
-It’s as simple as this!
+Now your S3 data is also encrypted in transit! easy peazy!
 
-Want to apply more security practices when interacting with your s3 buckets? Deep dive into the configuration of the permission statements and apply [defense in depth](https://aws.amazon.com/blogs/security/how-to-use-bucket-policies-and-apply-defense-in-depth-to-help-secure-your-amazon-s3-data/) 🤿.
+In addition to enforcing encryption at rest and in transit, carefully setting the permissions statements of an S3 bucket can allow you to block requests from anonymous or undesirable users.  Deep dive into the configuration of the permission statements and apply [defense in depth](https://aws.amazon.com/blogs/security/how-to-use-bucket-policies-and-apply-defense-in-depth-to-help-secure-your-amazon-s3-data/) 🤿.
 
