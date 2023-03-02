@@ -5,8 +5,8 @@ cover_image:
 description: 'Easily configure your S3 buckets to allow only encrypted requests. Quickly check if your stack complies with sls-mentor! 📈'
 tags: HTTPS, REST, S3, AWS
 series: sls-mentor
-canonical_url:
----
+canonical_url: https://dev.to/vincentzan/ensure-https-secure-communication-with-your-s3-bucket
+--- 
 Serverless architectures are becoming increasingly popular for various reasons including performance, maintainability and cost. This shifts a lot of cybersecurity concerns to the cloud provider, but it surely does not mean you shouldn’t care about the security of your serverless app.
 
 The app architecture is a key part of a secure serverless app—building separate, atomic Lambda functions, separating services etc. But it’s not enough, because the architecture doesn’t include protection methods or instrumentation agents such as [keys authentication or file transfer protocols](https://protectonce.com/the-10-best-practices-for-serverless-security/).
