@@ -15,6 +15,6 @@
   "dependencies": {
     "dev-to-git": "1.4.9",
     "embedme": "1.22.0",
-    "prettier": "2.6.1"
+    "prettier": "^2.8.4"
   }
 }
