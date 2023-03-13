@@ -12,23 +12,20 @@ _Easily configure your S3 buckets to allow only encrypted requests. Quickly chec
 
 Fond 1400\*600
 
-Serverless architectures have a reputation of safety because part of the cybersecurity risk is managed by the cloud provider, but it does not mean you should not do anything on your side about it. Hopefully, it is often simple to improve security on a serverless app: setting up the right configurations for your AWS resources can help you increase the overall security of your app at low cost.
+Serverless architectures have a reputation of safety because part of the cybersecurity risk is managed by the cloud provider. This does not mean you should not do anything on your side about it. Hopefully, it is often simple to improve security on a serverless app: setting up the right configurations for your AWS resources can help you increase the overall security of your app at low cost. More specifically, if you’re building a serverless app with AWS there’s a good chance you’re using S3 storage. As a data store, it is crucial to avoid security vulnerabilities with this resource.
+
 
 ## Why is it important to secure your S3 buckets?
-
-More specifically, if you’re building a serverless app with AWS there’s a good chance you’re using S3 storage. As a data store, it is crucial to avoid security vulnerabilities with this resource.
 
 We often hear about encryption of data at rest i.e. in the bucket, which is a first step for securing your data. But the data could also be intercepted while in transit i.e. when it's being transferred over an HTTP request, creating... a data breach! 💀
 
 ![meme data breach](./assets/meme-data-breach.gif 'meme data breach')
 
-A solution consists in encrypting the data in the request. This can be done simply by using the widespread HTTPS protocol 🤝 for posting requests to the database. Essentially, it uses transport layer encryption, an asymmetric cryptographic protocol which means the encryption key (call it `x`) is public but the decryption key is private.  To centralize and authenticate the public keys, a third party called a certificate authority issues a proof that public key `x` is indeed associated with domain name `d` for a given period of time. The certificate authority issues a document called an HTTPS certificate. There are different levels of certification depending on how thoroughly the analysis of the issuing party is conducted. When making a request over HTTPS, it is thus possible to encrypt the data such that a certain domain name only can decrypt it. With this system, the request data is end-to-end encrypted. This is what we want to enforce for our S3 queries.
+A solution consists in encrypting the data in the request. This can be done simply by using the widespread HTTPS protocol 🤝 for posting requests to the database. Essentially, it uses transport layer encryption, an asymmetric cryptographic protocol which means the encryption key (call it `x`) is public but the decryption key is private.  To centralize and authenticate the public keys, a third party called a certificate authority issues a proof that public key `x` is indeed associated with domain name `d` for a given period of time. The certificate authority issues a document called an HTTPS certificate. There are different levels of certification depending on how thoroughly the analysis of the issuing party is conducted. When making a request over HTTPS, it is thus possible to encrypt the data such that a certain domain name _only_ can decrypt it. With this system, the request data is end-to-end encrypted. This is what we want to enforce for our S3 queries.
 In contrast, plain old HTTP requests are not encrypted thus are vulnerable to [man-in-the-middle](https://csrc.nist.gov/glossary/term/man_in_the_middle_attack) and eavesdropping attacks.
 
 ![schema schemaPublicPrivateEncryption](./assets/public-key-cryptography.jpg, 'asymmetric cryptography schema')
 *Principle of public-private key encryption. Image from https://www.twilio.com/blog/what-is-public-key-cryptography*
-
-
 
 ![meme https](./assets/meme-https.jpg 'meme https')
 
