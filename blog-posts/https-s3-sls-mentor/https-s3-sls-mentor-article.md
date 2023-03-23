@@ -1,7 +1,7 @@
 ---
 published: false
 title: 'Enable HTTPS-only on your S3 buckets'
-cover_image:
+cover_image: ./assets/cover-articles.jpg
 description: 'Easily configure your S3 buckets to allow only encrypted requests. Quickly check if your stack complies with sls-mentor! 📈'
 tags: HTTPS, REST, S3, AWS
 series: sls-mentor
@@ -9,8 +9,6 @@ canonical_url: https://dev.to/vincentzan/ensure-https-secure-communication-with-
 ---
 
 _Easily configure your S3 buckets to allow only encrypted requests. Quickly check if your stack complies with sls-mentor! 📈_
-
-Fond 1400\*600
 
 Serverless architectures have a reputation of safety because part of the cybersecurity risk is managed by the cloud provider. This does not mean you should not do anything on your side about it. Hopefully, it is often simple to improve security on a serverless app: setting up the right configurations for your AWS resources can help you increase the overall security of your app at low cost. More specifically, if you’re building a serverless app with AWS there’s a good chance you’re using S3 storage. As a data store, it is crucial to avoid security vulnerabilities with this resource.
 
