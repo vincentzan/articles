@@ -1,7 +1,7 @@
 ---
 published: false
 title: 'Enable HTTPS-only on your S3 buckets'
-cover_image: ./assets/cover-articles.jpg
+cover_image:
 description: 'Easily configure your S3 buckets to allow only encrypted requests. Quickly check if your stack complies with sls-mentor! 📈'
 tags: HTTPS, REST, S3, AWS
 series: sls-mentor
