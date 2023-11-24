@@ -1,9 +1,8 @@
 ---
 published: true
 title: 'Configure Authentication to your AWS account in your GitHub actions CI'
-cover_image: ./assets/background_image.png
 description: 'Easily authenticate your AWS account for your CI/CD pipeline! '
-tags: CI, CD, Github actions, AWS
+canonical_url: https://dev.to/vincentzan/authenticate-aws-on-ci
 ---
 
 **TL;DR** Streamline your GitHub Actions CI workflow by addressing the challenge of configuring secure authentication to your AWS account. This article provides concise guidance on ensuring seamless integration while maintaining the highest standards of security.
@@ -37,7 +36,9 @@ First you want to tell AWS IAM to acknowledge the Github identity provider as a 
 - Go to the AWS IAM console and under identity providers click “Add provider” under provider type specify OIDC (last generation, JSON-based while SAML is XML based)
 - For provider URL, enter the URL of the GitHub OIDC IdP for this solution: [https://token.actions.githubusercontent.com](https://token.actions.githubusercontent.com/)
 - Click on “Get thumbprint”
-- Audience, enter [sts.amazonaws.com](http://sts.amazonaws.com/): ![tuto1](./assets/tuto1.png 'congigure Github identity provider')
+- Audience, enter [sts.amazonaws.com](http://sts.amazonaws.com/):
+
+![tuto1](./assets/tuto1.png 'congigure Github identity provider')
 
 ## Create a minimal IAM role for the CI workflow to assume.
 
