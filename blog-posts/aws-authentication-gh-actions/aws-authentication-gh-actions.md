@@ -3,6 +3,7 @@ published: true
 title: 'Configure Authentication to your AWS account in your GitHub actions CI'
 description: 'Easily authenticate your AWS account for your CI/CD pipeline! '
 canonical_url: https://dev.to/vincentzan/authenticate-aws-on-ci
+cover_image: https://res.cloudinary.com/practicaldev/image/fetch/s--GV53YZCP--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/itqggfjpavkm0g7wor7r.png
 ---
 
 **TL;DR** Streamline your GitHub Actions CI workflow by addressing the challenge of configuring secure authentication to your AWS account. This article provides concise guidance on ensuring seamless integration while maintaining the highest standards of security.
