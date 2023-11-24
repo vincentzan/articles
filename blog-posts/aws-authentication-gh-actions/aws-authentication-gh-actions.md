@@ -38,8 +38,7 @@ First you want to tell AWS IAM to acknowledge the Github identity provider as a 
 - Go to the AWS IAM console and under identity providers click “Add provider” under provider type specify OIDC (last generation, JSON-based while SAML is XML based)
 - For provider URL, enter the URL of the GitHub OIDC IdP for this solution: [https://token.actions.githubusercontent.com](https://token.actions.githubusercontent.com/)
 - Click on “Get thumbprint”
-- Audience, enter [sts.amazonaws.com](http://sts.amazonaws.com/):
-  ![tuto1]('../assets/tuto1.png' 'congigure Github identity provider')
+- Audience, enter [sts.amazonaws.com](http://sts.amazonaws.com/): ![tuto1]('../assets/tuto1.png' 'congigure Github identity provider')
 
 ## Create a minimal IAM role for the CI workflow to assume.
 
