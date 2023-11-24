@@ -2,5 +2,9 @@
   {
     "id": 1383548,
     "relativePathToArticle": "./blog-posts/https-s3-sls-mentor/https-s3-sls-mentor-article.md"
+  },
+  {
+    "id": 1677127,
+    "relativePathToArticle": "./blog-posts/aws-authentication-gh-actions/aws-authentication-gh-actions.md"
   }
 ]
