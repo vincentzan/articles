@@ -1,7 +1,7 @@
 ---
 published: false
 title: 'Configure Authentication to your AWS account in your GitHub actions CI'
-cover_image: './assets/background_image.png'
+cover_image: ./assets/background_image.png
 description: 'Easily authenticate your AWS account for your CI/CD pipeline! '
 tags: CI, CD, Github actions, AWS
 canonical_url: https://dev.to/vincentzan/configure-aws-authentication-on-github-actions
@@ -21,7 +21,7 @@ Now maybe you are wondering about what is happening under the hood when you set 
 
 The OIDC protocol that we configure is a standard based upon the OAuth 2.0 protocol that provides secure identity certification.
 
-![schema]('./assets/schema.png' 'principle schema')
+![schema](./assets/schema.png 'principle schema')
 
 You need to create a trust relationship between GH OIDC provider (also called IdP for identity provider) and AWS IAM. Note that for Github actions it is a third party distinct from Github (called Digicert). This is what is done when you clicked “get thumbprint” on the setup. In response, the authorisation server responds with a public key (for the RS256 protocol). With the latter, the cloud provider can check (and only check) the validity of a given JWT token. When you create a trust relationship between IAM and an OIDC identity provider, you are trusting identities authenticated by that IdP (identified by their webiste url, or DNS) to have access to a certain scope AWS account. Each CI job (i.e. each instance of a Github virtual machine CI/CD runner) requests an OIDC token from GitHub's Identity provider, which responds with a unique, automatically generated JSON web token (JWT). When the job runs, the OIDC token is presented to the cloud provider (in our case, to the STS service, from which we ask short term credentials in order to assume a role as the github runner). To validate the token, the cloud provider first checks it authenticity and second it checks if the OIDC token's subject and other claims are a match for the conditions that were preconfigured on the cloud role's OIDC trust definition. For example, the token will check the audience and the subjects as we have set in the Trust Policy.
 
@@ -38,7 +38,7 @@ First you want to tell AWS IAM to acknowledge the Github identity provider as a 
 - Go to the AWS IAM console and under identity providers click “Add provider” under provider type specify OIDC (last generation, JSON-based while SAML is XML based)
 - For provider URL, enter the URL of the GitHub OIDC IdP for this solution: [https://token.actions.githubusercontent.com](https://token.actions.githubusercontent.com/)
 - Click on “Get thumbprint”
-- Audience, enter [sts.amazonaws.com](http://sts.amazonaws.com/): ![tuto1]('./assets/tuto1.png' 'congigure Github identity provider')
+- Audience, enter [sts.amazonaws.com](http://sts.amazonaws.com/): ![tuto1](./assets/tuto1.png 'congigure Github identity provider')
 
 ## Create a minimal IAM role for the CI workflow to assume.
 
@@ -53,7 +53,7 @@ On the next page you need to select the minimal role you need your CI/CD to assu
 - Knowing this, select the role you want your CI/CD to be able to assume
 - Check the trust policy of the role : it should read as follows :
 
-![tuto2]('./assets/tuto2.png' 'configure trust policy')
+![tuto2](./assets/tuto2.png 'configure trust policy')
 
 ```yaml
 'Condition':
