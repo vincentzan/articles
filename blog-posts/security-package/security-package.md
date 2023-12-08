@@ -1,5 +1,5 @@
 ---
-published: true
+published: false
 title: 'New sls-mentor Security Package'
 description: 'Enhancing the Security of AWS Serverless Applications with sls-mentor'
 tags: SECURITY, AWS
