@@ -1,6 +1,6 @@
 ---
 published: true
-title: 'New sls-mentor Security Package'
+title: 'Learn Security Best Practices with Sls-mentor latest Security Package'
 description: 'Enhancing the Security of AWS Serverless Applications with sls-mentor'
 tags: security, AWS, serverless
 series: sls-mentor
