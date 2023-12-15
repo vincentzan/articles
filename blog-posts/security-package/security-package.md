@@ -4,7 +4,7 @@ title: 'Learn Security Best Practices with Sls-mentor latest Security Package'
 description: 'Enhancing the Security of AWS Serverless Applications with sls-mentor'
 tags: security, AWS, serverless
 series: sls-mentor
-cover_image: https://github.com/vincentzan/articles/blob/3b9613f527a008cf86f4c5323d27467a02d8c7a7/blog-posts/security-package/assets/cover.jpg
+cover_image: ./assets/cover.jpg
 canonical_url: https://dev.to/vincentzan/new-sls-mentor-security-package
 ---
 
