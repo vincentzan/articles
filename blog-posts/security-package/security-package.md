@@ -4,7 +4,7 @@ title: 'Learn Security Best Practices with Sls-mentor latest Security Package'
 description: 'Enhancing the Security of AWS Serverless Applications with sls-mentor'
 tags: security, AWS, serverless
 series: sls-mentor
-cover_image: ./assets/cover.jpg
+cover_image: https://raw.githubusercontent.com/vincentzan/articles/master/blog-posts/security-package/assets/cover.jpg
 canonical_url: https://dev.to/vincentzan/new-sls-mentor-security-package
 ---
 
@@ -32,18 +32,12 @@ In addition to the newly introduced security rules, sls-mentor already includes 
 
 To utilize sls-mentor and benefit from its security enhancement capabilities, follow these simple steps:
 
-1. **Install sls-mentor:** Open your terminal and run the following command to install sls-mentor:
-
-```bash
-  npm install sls-mentor
-```
-
-2. **Run sls-mentor:** With your AWS credentials configured, run the following command to initiate the security analysis:
+1. **Run sls-mentor:** With your AWS credentials configured, run the following command to initiate the security analysis:
 
 ```bash
   npx sls-mentor@latest --report
 ```
 
-3. **Review the security report:** The sls-mentor tool will generate a comprehensive report in your current directory, named `.sls-mentor/index.html`. This report provides insights into the security posture of your serverless applications, highlighting areas for improvement and offering actionable recommendations. **Join the Community and Contribute** We are always striving to enhance sls-mentor’s capabilities and welcome contributions from the community. If you have serverless or serverful knowledge to share, feel free to join our GitHub repository and contribute to our ongoing development efforts. Your contributions will directly impact the security of serverless applications worldwide.
+2. **Review the security report:** The sls-mentor tool will generate a comprehensive report in your current directory, named `.sls-mentor/index.html`. This report provides insights into the security posture of your serverless applications, highlighting areas for improvement and offering actionable recommendations. **Join the Community and Contribute** We are always striving to enhance sls-mentor’s capabilities and welcome contributions from the community. If you have serverless or serverful knowledge to share, feel free to join our GitHub repository and contribute to our ongoing development efforts. Your contributions will directly impact the security of serverless applications worldwide.
 
 **Conclusion** By incorporating sls-mentor into your serverless development workflow, you can proactively identify and address potential security vulnerabilities, ensuring the safety and integrity of your applications in the cloud. Join us in strengthening the security posture of serverless deployments and make your cloud infrastructure more resilient to attacks.
